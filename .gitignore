@@ -1,0 +1,46 @@
+# Power BI temporary, backup, and lock files
+~$*.pbix
+*.pbix.tmp
+*.pbix.bak
+*.pbit.tmp
+*.pbit.bak
+
+# Uncomment these if Power BI binary files should not be committed
+# *.pbix
+# *.pbit
+
+# Large/raw data files
+# Raw data is ignored by default; keep the folder in Git.
+data/raw/*
+!data/raw/.gitkeep
+
+# Common generated data files
+*.tmp
+*.temp
+*.bak
+*.log
+
+# SQL local database and backup artifacts
+*.db
+*.sqlite
+*.sqlite3
+*.mdf
+*.ndf
+*.ldf
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Python artifacts, if used for data cleaning
+__pycache__/
+*.py[cod]
+.venv/
+venv/
