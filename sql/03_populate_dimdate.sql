@@ -10,9 +10,9 @@ GO
 DELETE FROM DimDate;
 GO
 
--- Step 3: Populate DimDate with one row per day from 2015-01-01 to 2018-12-31
+-- Step 3: Populate DimDate with one row per day through the latest ship date
 DECLARE @CurrentDate DATE = '2015-01-01';
-DECLARE @EndDate DATE = '2018-12-31';
+DECLARE @EndDate DATE = '2019-01-05';
 
 WHILE @CurrentDate <= @EndDate
 BEGIN
@@ -25,3 +25,10 @@ BEGIN
         MONTH(@CurrentDate),
         FORMAT(@CurrentDate, 'yyyy-MMM')
     );
+    SET @CurrentDate = DATEADD(DAY, 1, @CurrentDate);
+END;
+GO
+
+SELECT COUNT(*) AS [TotalDates]
+FROM [dbo].[DimDate];
+GO
